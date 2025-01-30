@@ -84,7 +84,6 @@ public class Paciente {
         if(edad>=MAYOR_EDAD){
             return true;
         }
-
         return false;
 
     }
@@ -144,7 +143,6 @@ public class Paciente {
 
     @Override
     public String toString(){
-
         return "Paciente: con nombre "+this.nombre+" y "+this.edad+" años de edad. Genero "+this.genero+" y dni "+ this.dni+ " con una altura de "+this.altura+" y un peso de "+this.peso;
     }
 

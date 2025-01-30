@@ -2,6 +2,7 @@ package org.example;
 
 public class Televisor {
 
+
     private int canal=1;
     private int volumen=5;
 
@@ -50,10 +51,10 @@ public class Televisor {
             System.out.println("no se puede cambiar el canal");
         }
     }
-    @Override
-    public String toString(){
-        return "";
-    }
 
+    @Override
+    public String toString() {
+        return "Televisor{" + "canal=" + canal + ", volumen=" + volumen + '}';
+    }
 
 }
