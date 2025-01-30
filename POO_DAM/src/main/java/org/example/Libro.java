@@ -1,6 +1,4 @@
-package org.example.biblioteca;
-
-import Equipo.Editorial;
+package org.example;
 
 public class Libro {
 
