@@ -74,5 +74,9 @@ public class Persona {
         System.out.println(this.nombre + " " + this.apellido +" " + this.dni +" " + this.peso +" " + this.edad);
     }
 
+    @Override
+    public String toString(){
+        return "Persona "+nombre+" con el apellido "+ apellido+ " y con el dni "+dni+ " con la edad "+edad + "y con el peso "+peso;
+    }
 
 }

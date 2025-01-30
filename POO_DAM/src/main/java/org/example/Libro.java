@@ -22,6 +22,7 @@ public class Libro {
         id=LIB+calcularId();
         estudianteprestado=null;
         this.editorial=editorial;
+        editorial.anyadirLibro(this);
 
     }
 
@@ -106,18 +107,18 @@ public class Libro {
 
     }
     public Prestamo prestar(Estudiante estudiante){
-        if (disponible && estudiante.getLibroprestado()== null) {
+        if (disponible && !estudiante.getLibrosPrestados().contains(this)) {
             disponible = false;
             System.out.println("El libro" + getTitulo() + " ha sido prestado con exito " + " a " + estudiante.getNombre() + ".");
             LIBROSDISPONIBLES--;
             estudianteprestado = estudiante;
-            estudiante.setLibroprestado(this);
+            estudiante.anyadirLibro(this);
             Prestamo prestamo = new Prestamo(estudiante,this);
             System.out.println("Se ha generado el préstamo "+prestamo);
             return prestamo;
 //            getPrestamo(prestamo);
 
-        } else if (estudiante.getLibroprestado()!= null) {
+        } else if (estudiante.getLibrosPrestados().contains(this)) {
             System.out.println("El estidiante "+estudiante.getNombre()+" ya tiene un libro prestado");
         } else {
             System.out.println("El libro" + getTitulo() + " no se puede prestar ");
@@ -133,7 +134,7 @@ public class Libro {
             System.out.println("El libro "+getTitulo()+ " ha sido devuelto con éxito"+" por "+estudianteprestado.getNombre());
             LIBROSDISPONIBLES++;
             estudianteprestado=null;
-            estudiante.setLibroprestado(null);
+            estudiante.borrarLibro(this);
 
         }else {
             System.out.println("El libro"+getTitulo()+"no se puede devolver");

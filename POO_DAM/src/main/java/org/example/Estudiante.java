@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.ArrayList;
+
 public class Estudiante {
     public static int contadorEstudiantes=0;
     public static final String FORMATO_CORREO="^[A-Za-z0-9+_.-]+@alu.edu.gva.es$";
@@ -8,13 +10,15 @@ public class Estudiante {
     private String curso;
     private int nia;
     private String email;
-    private Libro libroprestado;
 
+
+    private ArrayList <Libro> libroprestados;
 
     public Estudiante(String nombre){
         this.nombre=nombre;
         contadorEstudiantes++;
         nia=contadorEstudiantes;
+        libroprestados=new ArrayList<>();
     }
 
     public Estudiante(String nombre, String curso, String email){
@@ -24,6 +28,8 @@ public class Estudiante {
         this.email=email;
         contadorEstudiantes++;
         nia=contadorEstudiantes;
+        libroprestados=new ArrayList<>();
+
     }
 
     public String getNombre() {
@@ -57,19 +63,26 @@ public class Estudiante {
     public void setEmail(String email) {
         this.email = email;
     }
-    public Libro getLibroprestado() {
-        return libroprestado;
+    public ArrayList <Libro> getLibrosPrestados() {
+        return libroprestados;
     }
 
-    public void setLibroprestado(Libro libroprestado) {
-        this.libroprestado = libroprestado;
+    public void setLibroprestados(ArrayList<Libro> libroprestados) {
+        this.libroprestados = libroprestados;
+    }
+
+    public void anyadirLibro(Libro libro){
+        libroprestados.add(libro);
+    }
+    public void borrarLibro(Libro libro){
+        libroprestados.remove(libro);
     }
     @Override
     public String toString(){
-        if (libroprestado!= null) {
-            return "Alumno [nombre= " + this.nombre + " curso " + this.curso + " nia " + this.nia + " el email " + this.email +libroprestado.getEstudianteprestado()+ "]";
+        if (libroprestados.isEmpty()) {
+            return "Alumno [nombre= " + this.nombre + " curso " + this.curso + " nia " + this.nia + " el email " + this.email +" Libro prestado= "+libroprestados+ " ]";
         }else {
-            return "Alumno [nombre= " + this.nombre + " curso " + this.curso + " nia " + this.nia + " el email " + this.email+" }";
+            return "Alumno [nombre= " + this.nombre + " curso " + this.curso + " nia " + this.nia + " el email " + this.email+" ]";
         }
     }
     public static int obtenertotal(){

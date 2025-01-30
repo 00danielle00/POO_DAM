@@ -48,8 +48,6 @@ public class Main {
 //        mayorEdad(paciente1);
 //        mayorEdad(paciente2);
 //        mayorEdad(paciente3);
-//
-//
 //    }
 //
 //    public static void comprobarPeso(Paciente paciente){
@@ -69,7 +67,6 @@ public class Main {
 //        }
 //
 //    }
-//
 //    public static void mayorEdad(Paciente paciente){
 //
 //        if(paciente.esMayorDeEdad()){
@@ -85,6 +82,17 @@ public class Main {
 //    libro1.devolver();
 //    System.out.println(libro);
 //    System.out.println(libro1.getdisponible());
+
+        Persona persona1 = new Persona("Luis", "Sánchez", "1234456X", 20, 40);
+
+        Equipo equipo1 = new Equipo("Real Mutxamel");
+        System.out.println(equipo1);
+        equipo1.anyadir_componentes(persona1);
+        System.out.println(equipo1);
+        equipo1.eliminar_persona(persona1);
+        System.out.println(equipo1);
+
+
  }
 
 }

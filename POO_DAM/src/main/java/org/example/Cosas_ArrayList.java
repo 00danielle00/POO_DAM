@@ -118,7 +118,7 @@ public class Cosas_ArrayList {
         addElemento(lista_copia, "cafe");
         addElemento(lista_copia, "galletas");
         System.out.println("Lista clonadaa con 2 elementos: "+lista_copia);
-        
+
         //l)
         ArrayList<String> faltantes =new ArrayList<>(listaCompra);
         faltantes.removeAll(lista_copia);
