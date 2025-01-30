@@ -1,9 +1,7 @@
 
 package org.example;
 
-import java.util.Scanner;
-
-import static org.example.Libro.getLibrosDisponibles;
+import Equipo.Editorial;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -83,7 +81,7 @@ public class Main {
 //    System.out.println(libro);
 //    System.out.println(libro1.getdisponible());
 
-        Persona persona1 = new Persona("Luis", "Sánchez", "1234456X", 20, 40);
+        Editorial.Persona persona1 = new Editorial.Persona("Luis", "Sánchez", "1234456X", 20, 40);
 
         Equipo equipo1 = new Equipo("Real Mutxamel");
         System.out.println(equipo1);
