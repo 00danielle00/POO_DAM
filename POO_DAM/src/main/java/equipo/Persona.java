@@ -8,10 +8,6 @@ public class Persona {
     private int peso;
     private int edad;
 
-    public Persona (){
-
-    }
-
     public Persona(String nombre, String apellido, String dni, int peso, int edad){
 
         this.nombre = nombre;

@@ -1,0 +1,42 @@
+@startuml
+class Casa {
+    +direccion: String
+    +habitaciones: ArrayList<Habitacion>
+    +propietario: Propietario
+    +agregarHabitacion(nombre: String, metros: int): void
+    +eliminarHabitacion(nombre: String): void
+    +mostrarHabitaciones(): Habitacion
+    +getHabitacionGrande(): Habitacion
+    +setPropietario(): void
+    +CalcularHabitacionMasConsumo(): void
+}
+
+class Habitacion {
+    +nombre: String
+    +metrosCuadrados: double
+    +electrodomesticos: ArrayList<Electrodomestico>
+    +agregarElectrodomestico(nombre: String, consumo: double): void
+    +mostrarElectrodomesticos(): Electrodomestico
+    +CalcularConsumo(): double
+}
+
+class Electrodomestico {
+    +nombre: String
+    +consumo: double
+}
+
+class Propietario {
+    +nombre: String
+    +edad: int
+}
+
+' Relación de composición: una Casa tiene Habitaciones
+Casa "1" -- "*" Habitacion : "contiene"
+
+' Relación de agregación: Habitacion tiene Electrodomésticos
+Habitacion "1" o-- "*" Electrodomestico : "tiene"
+
+' Relación de agregación: Casa tiene un Propietario
+Casa "1" o-- "1" Propietario : "pertenece a"
+
+@enduml
