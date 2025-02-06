@@ -90,11 +90,6 @@ public class Programa {
     }
 
 
-    public void borrarInvitados(Invitado invitado){
-        listaInvitados.remove(invitado);
-    }
-
-
     public ArrayList<Invitado> getListaInvitados() {
         return listaInvitados;
     }
