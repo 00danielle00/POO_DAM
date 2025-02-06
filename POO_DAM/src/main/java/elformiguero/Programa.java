@@ -27,12 +27,15 @@ public class Programa {
 
         listaEmpleados.add(new Empleado(nombre, cargo,director));
     }
-    public void borrarEmpleado(Empleado empleado){
-        listaEmpleados.remove(empleado);
+    public void borrarEmpleado(String nombre, String cargo, Empleado director){
+        listaEmpleados.remove(new Empleado(nombre, cargo,director));
     }
 
     public void agregarInvitados(String nombre, String cargo, int temporadas, LocalDate fecha){
         listaInvitados.add(new Invitado(nombre,cargo,temporadas,fecha));
+    }
+    public void borrarInvitados(String nombre, String cargo, int temporadas, LocalDate fecha){
+        listaInvitados.remove(new Invitado(nombre,cargo,temporadas,fecha));
     }
 
 
@@ -41,7 +44,7 @@ public class Programa {
         int numInvitadosTemporada=0;
         for (Invitado in: listaInvitados){
             if (in.getTemporada()==temporada){
-                System.out.println("nombre:"+in.getNombre()+"con la profesión:"+in.getProfesion());
+                System.out.println("nombre: "+in.getNombre()+" con la profesión: "+in.getProfesion());
                 numInvitadosTemporada++;
 
             }
@@ -85,16 +88,6 @@ public class Programa {
         System.out.println("El invitado "+ nombre+ " no ha acudido al programa ");
         return false;
     }
-
-    //f) no se hacer este
-
-    public void invitadoAntes(String nombre){
-        buscarInvitado(nombre);
-
-    }
-
-
-
 
 
     public void borrarInvitados(Invitado invitado){
