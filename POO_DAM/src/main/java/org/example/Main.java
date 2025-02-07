@@ -3,6 +3,9 @@ package org.example;
 
 import equipo.Equipo;
 import equipo.Persona;
+import pruebas_lombok.Curso;
+import pruebas_lombok.Estudiante;
+import pruebas_lombok.Instituto;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -82,16 +85,56 @@ public class Main {
 //    System.out.println(libro);
 //    System.out.println(libro1.getdisponible());
 
-        Persona persona1 = new Persona("Luis", "Sánchez", "1234456X", 20, 40);
+//        Persona persona1 = new Persona("Luis", "Sánchez", "1234456X", 20, 40);
+//
+//        Equipo equipo1 = new Equipo("Real Mutxamel");
+//        System.out.println(equipo1);
+//        equipo1.anyadir_componentes(persona1);
+//        System.out.println(equipo1);
+//        equipo1.eliminar_persona(persona1);
+//        System.out.println(equipo1);
 
-        Equipo equipo1 = new Equipo("Real Mutxamel");
-        System.out.println(equipo1);
-        equipo1.anyadir_componentes(persona1);
-        System.out.println(equipo1);
-        equipo1.eliminar_persona(persona1);
-        System.out.println(equipo1);
+//        Instituto ies_alluser = new Instituto("ncd", " ")
+//        System.out.println(ies_alluser.toString());
+//
+////hacer un try-catch para controlar la excepcion
+//        Instituto iesmutxamel=null;
+//        try {
+//             iesmutxamel =new Instituto(null, "mutxamel", "calle 123");
+//        }catch (NullPointerException n){
+//            System.out.println("no pde ser null");
+//        }
+//        System.out.println(iesmutxamel);
+//
+            Instituto instituto = new Instituto("IES MUTXAMEL");
 
+            Curso cursoJava = new Curso("Java", 100);
+            Curso cursoPython = new Curso("Python", 70);
+            instituto.agregarCurso(cursoJava);
+            instituto.agregarCurso(cursoPython);
+        try {
+            Estudiante estudiante1 = new Estudiante("Carlos", 20, cursoJava);
+            Estudiante estudiante2 = new Estudiante("Ana", 22, cursoPython);
+            instituto.agregarEstudiante(estudiante1);
+            instituto.agregarEstudiante(estudiante2);
+            //intento de crear un estudiante con nombre nulo (esto lanzaNullPointerException)
+            Estudiante estudianteErroneo = new Estudiante(null);
 
- }
+        } catch (NullPointerException e) {
+            System.out.println("Error: No se puede crear un estudiante con nombre nulo.");
+        }
+        instituto.agregarEstudiante(null);
+        //intento de añadir un curso nulo en la lista de cursos
+        instituto.agregarCurso(null);
+
+        //mostrar cursos
+        System.out.println("Cursos disponibles:");
+        System.out.println(instituto.getListaCursos());
+
+        //mostrar estudiantes
+        System.out.println("Estudiantes registrados:");
+        System.out.println(instituto.getListaEstudiantes());
+
+    }
 
 }
