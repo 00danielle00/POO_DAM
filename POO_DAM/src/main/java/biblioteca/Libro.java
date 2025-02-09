@@ -1,6 +1,8 @@
 package biblioteca;
 
+
 public class Libro {
+
 
     private static int CANTIDADLIBROS=0;
     private static int LIBROSDISPONIBLES=0;
