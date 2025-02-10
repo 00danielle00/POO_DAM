@@ -16,9 +16,10 @@ public class AppBancaria {
             eleccion = cogerEleccion();
             switch (eleccion) {
                 case "1":
-
+                    matenimientoCliente();
                     break;
                 case "2":
+                    mantenimientoCuenta();
                     break;
             }
 
@@ -49,6 +50,13 @@ public class AppBancaria {
         System.out.println("[3] Modificaciones");
         System.out.println("[4] Listado de clientes");
         System.out.println("[X] Volver al menú principal");
+    }
+
+    public static void verCuentas() {
+        System.out.println("Cuentas de la sucursal (" + cuenta.size() + ")");
+        for (Cuenta c : cuenta) {
+            System.out.println(c.toString());
+        }
     }
 
     private static void matenimientoCliente() {
@@ -99,26 +107,69 @@ public class AppBancaria {
         }
     }
 
-    private static void modificarCliente(){
+    private static void modificarCliente() {
         Cliente cliente = null;
         mostarListadoClientes();
         System.out.println("que cliente quieres modificar:");
         int id = teclado.nextInt();
-        for (Cliente cli: clientes){
-            if (cli.getId() == id){
+        for (Cliente cli : clientes) {
+            if (cli.getId() == id) {
                 cliente = cli;
             }
         }
         String nombre = "";
         System.out.println("quieres cambiar el nomnbre");
         String resp = teclado.next();
-        if (resp.equals("si")){
+        if (resp.equals("si")) {
             System.out.println("introduce el nuevo nombre:");
-             nombre = teclado.next();
-             cliente.setNombre(nombre);
+            nombre = teclado.next();
+            cliente.setNombre(nombre);
         }
 
 
+    }
+
+    public static void mostrarMenuCuenta() {
+        System.out.println("Cuentas:");
+        System.out.println("[1] Consultar cuentas cliente");
+        System.out.println("[2] Ver todas las cuentas");
+        System.out.println("[X] Volver al menú principal");
+    }
+
+    public static void mantenimientoCuenta() {
+        String opcion = "";
+        do {
+            mostrarMenuCuenta();
+            opcion = cogerEleccion();
+            switch (opcion) {
+                case "1":
+                    consultarCuentasCliente();
+                    break;
+                case "2":
+                    verCuentas();
+                    break;
+            }
+        } while (!opcion.equals("X"));
+    }
+
+    public static void consultarCuentasCliente() {
+
+        String nombre = "";
+        String apellido = "";
+
+        System.out.println("introduzca nombre");
+        nombre = teclado.next();
+        System.out.println("introduzca apellidos:");
+        apellido = teclado.nextLine();
+
+        for (Cuenta c : cuenta) {
+            if (c.getTitular().equals(nombre) && c.getTitular().equals(apellido)) {
+                System.out.println("Cuentas asociadas a " + nombre + apellido);
+                System.out.println(c.getIban() + " - saldo:" + c.getSaldo() + "€");
+                return;
+            }
+        }
+        System.out.println("la persona que buscas, no tiene ninguna cuenta");
     }
 
 
