@@ -1,0 +1,54 @@
+@startuml
+
+abstract class MetodoPago {
+    + procesarPago(importe: double): void
+}
+
+class Paypal {
+    - saldo: double
+    - cuenta: String
+    - FORMATO_CUENTA: String
+    + validarPaypal(correo: String, num: double): void
+    + comprobarSaldo(dinero: double): boolean
+    + comprobarFormatoCorreo(correo: String): void
+    + procesarPago(importe: double): void
+}
+
+class TarjetaCredito {
+    - nro_tarjeta: String
+    - tipo: String
+    + validarTarjeta(tipo: String, num: String): void
+    + validarLongitudTarjeta(numero: String): void
+    + validarValoresTarjeta(tipo: String): boolean
+    + procesarPago(importe: double): void
+}
+
+class Tienda {
+    + realizarPago(metodo: MetodoPago, importe: double): void
+    + iniciarPago(): void
+    + pagoTarjeta(): void
+    + pagoPaypal(): void
+    + pagoBizum(): void
+}
+
+class Bizum {
+    - telefono: String
+    - pin: int
+    + validarBizum(num: String, pin: int): void
+    + comprobarNumeroTelefono(numero: String): void
+    + validarPin(pin: int): int
+    + generarPin(): int
+    + procesarPago(importe: double): void
+}
+
+class AppEcommerce {
+    + main(args: String[]): void
+}
+
+MetodoPago <|-- Paypal
+MetodoPago <|-- TarjetaCredito
+MetodoPago <|-- Bizum
+Tienda --> MetodoPago : "realiza pagos"
+AppEcommerce --> Tienda : "inicia proceso de pago"
+
+@enduml
