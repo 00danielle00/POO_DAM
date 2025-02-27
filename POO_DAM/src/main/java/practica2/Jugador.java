@@ -1,5 +1,10 @@
 package practica2;
 
+import herencia_festival.EdadValidaException;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter @Setter
 public class Jugador extends MutxamelFC implements AccionesDeportivas {
 
     private Equipos categoria;
@@ -24,18 +29,6 @@ public class Jugador extends MutxamelFC implements AccionesDeportivas {
         System.out.println(getNombre()+" ha marcado un gol");
     }
 
-    public Equipos getCategoria() {
-        return categoria;
-    }
-
-    public int getDorsal() {
-        return dorsal;
-    }
-
-    public Posiciones getPosiciones() {
-        return posiciones;
-    }
-
     @Override
     public void entrenar() {
 
@@ -46,5 +39,20 @@ public class Jugador extends MutxamelFC implements AccionesDeportivas {
     public void jugarPartido(String rival) {
         System.out.println(getNombre()+" esta jugando un partido contra "+rival);
     }
+
+    @Override
+    public void concentrarse() {
+        System.out.println(getNombre()+ " se está concentrando ");
+    }
+    @Override
+    public void viajar(String ciudad) {
+        System.out.println(getNombre()+" viajando a "+ciudad);
+    }
+
+    @Override
+    public void celebrarGol() {
+        System.out.println(getNombre()+" celebrando el GOOL");
+    }
+
 
 }

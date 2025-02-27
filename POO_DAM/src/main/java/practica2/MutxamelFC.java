@@ -1,6 +1,10 @@
 package practica2;
 
-public class MutxamelFC implements FuncionesIntegrantes{
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter @Setter
+public abstract class MutxamelFC implements FuncionesIntegrantes{
 
     private String nombre;
     private int edad;
@@ -9,11 +13,6 @@ public class MutxamelFC implements FuncionesIntegrantes{
         this.nombre=nombre;
         this.edad=edad;
     }
-
-    public String getNombre() {
-        return nombre;
-    }
-
     @Override
     public void concentrarse() {
         System.out.println(nombre+"concentrándose para el partido...");
@@ -28,4 +27,5 @@ public class MutxamelFC implements FuncionesIntegrantes{
     public void celebrarGol() {
         System.out.println("GOOOOOOOOOOOOOOOOOOLLLLLLL");
     }
+
 }

@@ -34,7 +34,7 @@ class Persona {
         if (edad<18){
             throw new EdadValidaException("No puede ser menor de edad");
         }
-            this.edad = edad;
+        this.edad = edad;
 
     }
 }
