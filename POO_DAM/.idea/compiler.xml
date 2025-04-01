@@ -7,7 +7,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="ProblemasPROGRAMAME" />
         <module name="poo_dam" />
+        <module name="Tema-7" />
       </profile>
     </annotationProcessing>
   </component>
